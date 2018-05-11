@@ -3,6 +3,7 @@ const hapiOpenapi = require('hapi-openapi');
 const path = require('path');
 
 const config = require('./config/config.json');
+const logger = require('./tools/logger');
 
 // Create a server with a host and port
 const server = Hapi.server({
@@ -22,11 +23,11 @@ async function start() {
     });
     await server.start();
   } catch (err) {
-    console.log(err);
+    logger.error('error %j', err);
     process.exit(1);
   }
 
-  console.log('Server running at:', server.info.uri);
+  logger.info('Server running at: %j', server.info.uri);
 }
 
 start();

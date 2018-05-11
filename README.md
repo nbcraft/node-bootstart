@@ -5,6 +5,7 @@ This is a template to easily start a Hapi Web Server Project.
 It uses:  
 * hapi
 * hapi-openapi
+* winston logger
 * mocha - chai
 * Eslint - Airbnb base
 

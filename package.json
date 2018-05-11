@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "hapi": "^17.4.0",
-    "hapi-openapi": "^1.0.3"
+    "hapi-openapi": "^1.0.3",
+    "winston": "^3.0.0-rc5"
   },
   "devDependencies": {
     "chai": "^4.1.2",
