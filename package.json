@@ -7,7 +7,8 @@
     "test": "test"
   },
   "dependencies": {
-    "hapi": "^17.4.0"
+    "hapi": "^17.4.0",
+    "hapi-openapi": "^1.0.3"
   },
   "devDependencies": {
     "chai": "^4.1.2",

@@ -1,6 +1,8 @@
 const Hapi = require('hapi');
+const hapiOpenapi = require('hapi-openapi');
+const path = require('path');
 
-const config = require('./config.json');
+const config = require('./config/config.json');
 
 // Create a server with a host and port
 const server = Hapi.server({
@@ -8,18 +10,16 @@ const server = Hapi.server({
   port: config.port,
 });
 
-// Add the route
-server.route({
-  method: 'GET',
-  path: '/hello',
-  handler(/* request, h */) {
-    return 'hello world';
-  },
-});
-
 // Start the server
 async function start() {
   try {
+    await server.register({
+      plugin: hapiOpenapi,
+      options: {
+        api: path.join(__dirname, './config/api.json'),
+        handlers: path.join(__dirname, './handlers'),
+      },
+    });
     await server.start();
   } catch (err) {
     console.log(err);
