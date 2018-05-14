@@ -1,5 +1,8 @@
+const handlerLogger = require('../tools/handler-logger');
+
 module.exports = {
-  get() {
-    return 'hello world';
-  },
+  get: [
+    function p1(req) { return handlerLogger(req); },
+    function handler() { return Promise.resolve('hello world'); },
+  ],
 };
